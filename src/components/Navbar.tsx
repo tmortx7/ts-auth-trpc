@@ -4,32 +4,14 @@ import COC from '../../public/coc-logo.svg'
 
 const Navbar = () => {
   const router = useRouter();
-  // const searchBox = useRef(false);
 
   const { data: sessionData, status } = useSession();
 
   return (
     <div>
-      <div className="navbar bg-base-100">
-        <div className="flex-none">
-          <button className="btn-ghost btn-square btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-5 w-5 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
-        </div>
+      <div className="navbar bg-neutral">
         <div className="flex-1">
-         <COC className="h-10 ml-4"/>
+         <COC className="h-12 ml-4"/>
         </div>
         <div className="flex-none">
           {status === "unauthenticated" && (
@@ -47,7 +29,7 @@ const Navbar = () => {
                 className="placeholder btn-sm btn-circle avatar btn"
               >
                 <div className="w-16 rounded-full bg-white text-neutral-content">
-                  <span className="text-lg">J</span>
+                  <span className="text-lg">{sessionData.user?.email?.charAt(0)}</span>
                 </div>
               </label>
               <ul

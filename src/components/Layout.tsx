@@ -4,10 +4,16 @@ import Navbar from "./Navbar";
 
 export default function Layout({ children }: { children: ReactElement }) {
   return (
-    <div className="flex min-h-[100vh] flex-col">
-      <Navbar />
-      <main className="flex grow items-stretch">{children}</main>
-      <Footer />
+    <div className="grid grid-cols-3 grid-rows-footer h-screen">
+      <div className="row-start-1 col-span-3">
+        <Navbar />
+      </div>
+      <div className="row-start-2 col-span-3">
+        <main className="">{children}</main>
+      </div>
+      <div className="row-start-3 col-span-3">
+        <Footer />
+      </div>
     </div>
   );
 }
