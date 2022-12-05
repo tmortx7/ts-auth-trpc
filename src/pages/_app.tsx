@@ -6,6 +6,7 @@ import { trpc } from "../utils/trpc";
 
 import "../styles/globals.css";
 import Layout from "../components/Layout";
+import FormContextProvider from "../context/FormContext";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -13,9 +14,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <FormContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </FormContextProvider>
     </SessionProvider>
   );
 };
